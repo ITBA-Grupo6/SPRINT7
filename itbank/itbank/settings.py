@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'Base',
     'Clientes',
     'Cuentas',
-    'Login',
     'Prestamos',
     'Tarjetas'
 ]

@@ -20,7 +20,6 @@ from django.urls import include
 from Base import views as views_Base
 from Clientes import views as views_Clientes
 from Cuentas import views as views_Cuentas
-from Login import views as views_Login
 from Prestamos import views as views_Prestamos
 from Tarjetas import views as views_Tarjetas
 
@@ -33,5 +32,4 @@ urlpatterns = [
     path('cuentas/', views_Cuentas.cuentas, name="cuentas"),
     path('prestamos/', views_Prestamos.prestamos, name="prestamos"),
     path('tarjetas/', views_Tarjetas.tarjetas, name="tarjetas"),
-    path('login/', views_Login.login, name="login"),
 ]
