@@ -4,4 +4,7 @@ from django.contrib.auth.decorators import login_required
 @login_required
 # Create your views here.
 def prestamos(request):
-    return render(request, "Prestamos/prestamos.html")
+    if request.user.username:
+        return render(request, "Prestamos/prestamos.html", {'name': request.user.username})
+    else: 
+        return render(request, "Prestamos/prestamos.html")

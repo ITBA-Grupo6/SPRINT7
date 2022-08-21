@@ -4,4 +4,7 @@ from django.contrib.auth.decorators import login_required
 @login_required
 # Create your views here.
 def tarjetas(request):
-    return render(request, "Tarjetas/tarjetas.html")
+    if request.user.username:
+        return render(request, "Tarjetas/tarjetas.html", {'name': request.user.username})
+    else: 
+        return render(request, "Tarjetas/tarjetas.html")
