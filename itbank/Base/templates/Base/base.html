@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,102 +20,60 @@
     <title>{% block title %}{% endblock %} | ITBANK HomeBanking</title>
   </head>
 
-  
   <body class="d-flex flex-column min-vh-100">
-    <div class="row">
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand" href="{% url 'home' %}"> 
-          <img
-          src="{% static 'Base\img\logo.png' %}"
-          alt=""
-          width="120"
-          height="40"
-          class="d-inline-block align-text-top"
-          />
-        </a>
-        <div class="flex-grow-1">
-          <ul class="navbar-nav justify-content-end">
-            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'clientes' %}">Clientes</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'cuentas' %}">Cuentas</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'prestamos' %}">Prestamos</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'tarjetas' %}">Tarjetas</a></li>
-            {% if not request.user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'login' %}">Acceder</a>
-            </li>
-            {% else %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'logout' %}">Salir</a>
-            </li>
-            {% endif %}
-          </ul>
-        </div>
-      
-      </div>
-    </nav>
-  </div>
-  {% block content %} {% endblock %}
     <div class="container">
-      <div class="row">
-        
-        <div class="col-12 col-md-8 my-auto">
-          <div class="row">
-            <h2 class="fw-bold text-center py-5">Hola! Te damos la bienvenida.</h2>
-          </div>
-          <div class="row mb-3">
-            <h4 class="fw-normal text-center">Bajate la APP para una mejor experiencia.</h4>
-          </div>
-          <div class="row d-flex justify-content-center mb-3">
-            <div class="col-1">
-              <a href="https://www.apple.com/app-store/"><img src="{% static 'Base/img/app_store.png' %}" alt="App Store", width="40",height="40">
-              </a>
-            </div>
-            <div class="col-1">
-              <a href="https://play.google.com/store"><img src="{% static 'Base/img/google_play.png' %}" alt="Google Play Store", width="40",height="40">
-              </a>
-            </div>
+      <nav
+        class="navbar navbar-expand-lg navbar-light fixed-top bg-light"
+        id="mainNav"
+      >
+        <div class="container">
+          <a class="navbar-brand" href="{% url 'home' %}">
+            <img
+              src="{% static 'Base\img\logo.png' %}"
+              alt=""
+              width="120"
+              height="40"
+              class="d-inline-block align-text-top"
+            />
+          </a>
+          <div class="flex-grow-1">
+            <ul class="navbar-nav justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'clientes' %}">Clientes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'cuentas' %}">Cuentas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'prestamos' %}">Prestamos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'tarjetas' %}">Tarjetas</a>
+              </li>
+              {% if not request.user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Acceder</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Salir</a>
+              </li>
+              {% endif %}
+            </ul>
           </div>
         </div>
-        <div class="col-12 col-md-4">
-          <h3 class="fw-bold text-center py-5">Iniciar Sesión</h2>
-          <!-- LOGIN -->
-          <form action="#">
-            <div class="mb-3">
-              <label for="number" class="form-label">Documento (DNI)</label>
-              <input type="number" class="form-control">
-            </div>
-            <div class="mb-3">
-              <label for="password" class="form-label">Clave</label>
-              <input type="password" class="form-control">
-            </div>
-            <div class="mb-3">
-              <label for="password" class="form-label">Usuario</label>
-              <input type="password" class="form-control">
-            </div>
-            <div class="mb-3 form-check">
-              <input type="checkbox" name="connected" class="form-check-input">
-              <label for="connected" class="form-check-label">Recordar mi usuario</label>
-            </div>
-            <div class="d-grid">
-              <a href="/interfaz home/inicioUsuario.html" class="btn btn-primary">Iniciar Sesión</a>
-            </div>
-            <div class="my-3">
-              <div class="fw-bold">¿No eres cliente de ITBANK? <a href="/registro/registro.html">Registrarse</a></div>
-              <div>¿Olvidaste el usuario o la clave? <a href="#">Crear nuevo usuario y/o clave</a></div>
-            </div>
-          </form>
-        </div>
-      </div>
+      </nav>
     </div>
-   
+    {% block content %} {% endblock %}
+
     <footer class="bg-light text-center text-lg-start mt-auto">
-      <div class="text-center p-3" style="background-color: #f8f9fa;">
+      <div class="text-center p-3" style="background-color: #f8f9fa">
         © 2022 ITBANK. Todos los derechos reservados
       </div>
     </footer>
-
   </body>
 
   <script
