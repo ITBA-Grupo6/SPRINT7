@@ -1,4 +1,5 @@
-{% extends 'Base/base.html' %} {% load static %} {% block title %}Iniciar sesión{% endblock %} {% block content %}
+{% extends 'Base/base.html' %} {% load static %} {% block title %}Iniciar
+sesión{% endblock %} {% block content %}
 <style>
   .errorlist {
     color: red;
@@ -60,9 +61,7 @@
           </div>
           <div>
             ¿Olvidaste tu contraseña?
-            <a href="{% url 'password_reset' %}"
-              >Crear nuevo usuario y/o clave</a
-            >
+            <a href="{% url 'password_reset' %}">Recuperala</a>
           </div>
         </div>
       </div>

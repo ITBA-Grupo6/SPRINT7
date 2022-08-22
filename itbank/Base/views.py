@@ -3,7 +3,6 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from .forms import RegistroForm
 
-
 # Create your views here.
 def home(request):
     if request.user.username:
@@ -19,9 +18,7 @@ def registro(request):
         cliente_id= request.POST.get('cliente_id','')
         email = request.POST.get('email','')
         pwd = request.POST.get('pwd','')
-        print(cliente_id,email,pwd)
         user = User.objects.create_user(cliente_id, email, pwd)
         user.save()
-        print('creado')
         return redirect(reverse('login'))
     return render(request, "Base/registro.html")

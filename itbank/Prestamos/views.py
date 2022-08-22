@@ -8,3 +8,6 @@ def prestamos(request):
         return render(request, "Prestamos/prestamos.html", {'name': request.user.username})
     else: 
         return render(request, "Prestamos/prestamos.html")
+
+
+
