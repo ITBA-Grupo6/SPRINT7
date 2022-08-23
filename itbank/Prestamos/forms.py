@@ -11,3 +11,4 @@ class CreatePrestamo(forms.Form):
     class Meta:
         model: Prestamo
         fields = '__all__'
+
