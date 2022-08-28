@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from Cuentas.models import Cuenta
 
 @login_required
 # Create your views here.
 def cuentas(request):
-    if request.user.username:
-        return render(request, "Cuentas/cuentas.html", {'name': request.user.username})
-    else: 
-        return render(request, "Cuentas/cuentas.html")
+    iban = request.user.username
+    cuenta = Cuenta.objects.get(iban = iban)
+    saldo = int(cuenta.balance)  
+    return render(request, "Cuentas/cuentas.html", {'saldo': saldo})
+    
