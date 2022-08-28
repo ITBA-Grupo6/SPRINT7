@@ -14,7 +14,7 @@ def home(request):
 def registro(request):    
     registro_form = RegistroForm
     customer_id = 255   
-    monto = 10       
+    monto = 0       
     iban = "KZ301003620623271356"
     
     if request.method == "POST":
